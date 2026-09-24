@@ -1,0 +1,12 @@
+{
+  "capacity": 8,
+  "idempotent_invariant": true,
+  "ops": [
+    {"op": "append", "id": "o1", "op_name": "put"},
+    {"op": "append", "id": "o2", "op_name": "put"},
+    {"op": "append", "id": "o3", "op_name": "del"},
+    {"op": "checkpoint"},
+    {"op": "append", "id": "o4", "op_name": "put"},
+    {"op": "append", "id": "o5", "op_name": "put"}
+  ]
+}
