@@ -45,7 +45,7 @@ def main() -> int:
     print("已应用的记录数 =", stats.get("applied"))
     print("恢复后的断点 =", recovered.get("checkpoint"))
     print("不变量（重放幂等：已应用的记录不重复） =", spec["idempotent_invariant"])
-    print("记录数 =", len(spec["ops"]))
+    print("记录数 =", len([step for step in spec["ops"] if step["op"] == "append"]))
     server.shutdown()
     return 0
 
