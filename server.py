@@ -9,10 +9,11 @@ from ringlog import Journal
 
 ENGINE = Journal()
 ROUTES = {
-    "/append": lambda payload: ENGINE.append(payload["id"], payload["op"]),
+    "/append": lambda payload: ENGINE.append(payload["id"], payload.get("op_name", payload["op"])),
     "/replay": lambda payload: ENGINE.replay(),
     "/checkpoint": lambda payload: ENGINE.checkpoint(),
     "/truncate": lambda payload: ENGINE.truncate(),
+    "/persist": lambda payload: ENGINE.persist(),
     "/recover": lambda payload: ENGINE.recover(),
 }
 
